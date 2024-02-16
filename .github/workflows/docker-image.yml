@@ -25,7 +25,10 @@ jobs:
           sudo apt install awscli
 
       - name: Teste de autenticação AWS
-        run: aws --version
+        run: |
+          aws --version
+          echo "$AWS_ACCESS_KEY_ID"
+          echo "$AWS_SECRET_ACCESS_KEY"
 
       # - name: Build the Docker image
       #   run: docker build . -t "$TAG"
