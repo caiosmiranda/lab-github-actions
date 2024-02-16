@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 env:
-  TAG: "$ECR_REGISTRY:$(date +%s)"
+  TAG: $ECR_REGISTRY:$(date +%s)
 
 jobs:
 
