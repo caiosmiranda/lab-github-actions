@@ -20,6 +20,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::335902315655:role/github-actions-ecr
+          aws-access-key-id: AKIAU4NKWSSD3ICMTPOG
           aws-region: us-east-1
 
       - name: Build the Docker image
