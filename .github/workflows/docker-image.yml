@@ -15,15 +15,15 @@ jobs:
 
     steps:
 
-    - name: Configure AWS Credentials
-    - uses: aws-actions/configure-aws-credentials@v2
-      with:
-        role-to-assume: arn:aws:iam::335902315655:role/github-actions-ecr
-        aws-region: us-east-1
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::335902315655:role/github-actions-ecr
+          aws-region: us-east-1
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag $TAG
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag $TAG
 
-    - name: Publish the Docker image to AWS ECR
-      run: docker push $TAG
+      - name: Publish the Docker image to AWS ECR
+        run: docker push $TAG
       
