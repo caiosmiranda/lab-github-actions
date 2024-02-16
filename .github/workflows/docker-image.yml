@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 env:
-  TAG: $ECR_REGISTRY:$(date +%s)
+  TAG: 335902315655.dkr.ecr.us-east-1.amazonaws.com/github-actions
 
 jobs:
 
