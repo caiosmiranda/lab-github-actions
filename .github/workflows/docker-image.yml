@@ -17,7 +17,7 @@ jobs:
     steps:
 
       - name: Build the Docker image
-        run: docker build . -f Dockerfile -t "$TAG"
+        run: docker build . -f ./Dockerfile -t "$TAG"
 
       - name: Publish the Docker image to AWS ECR
         run: docker push "$TAG"
