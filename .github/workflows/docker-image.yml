@@ -28,7 +28,7 @@ jobs:
         run: docker build . -t "$TAG"
 
       - name: Authentication ECR 
-        run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 335902315655.dkr.ecr.region.amazonaws.com
+        run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 335902315655.dkr.ecr.us-east-1.amazonaws.com
 
       - name: Publish the Docker image to AWS ECR
         run: docker push "$TAG"
