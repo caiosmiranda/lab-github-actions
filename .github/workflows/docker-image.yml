@@ -23,6 +23,7 @@ jobs:
           aws-access-key-id: AKIAU4NKWSSD3ICMTPOG
           aws-region: us-east-1
           aws-secret-access-key: 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
+          role-skip-session-tagging: true
 
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag $TAG
