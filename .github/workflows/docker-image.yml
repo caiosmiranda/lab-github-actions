@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 env:
-  TAG: $ECR_REGISTRY:$(date +%s)
+  TAG: "$ECR_REGISTRY:$(date +%s)"
 
 jobs:
 
@@ -17,8 +17,8 @@ jobs:
     steps:
 
       - name: Build the Docker image
-        run: docker build -t $TAG .
+        run: docker build -t "$TAG" .
 
       - name: Publish the Docker image to AWS ECR
-        run: docker push $TAG
+        run: docker push "$TAG"
       
