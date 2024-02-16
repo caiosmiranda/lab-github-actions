@@ -21,11 +21,9 @@ jobs:
         role-to-assume: arn:aws:iam::335902315655:role/github-actions-ecr
         aws-region: us-east-1
 
-    - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag $TAG
 
-    - uses: actions/checkout@v3
     - name: Publish the Docker image to AWS ECR
       run: docker push $TAG
       
