@@ -32,9 +32,17 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: $REGISTRY/$REPOSITORY
+          tags: |
+            type=semver,pattern={{version}}
+
       - name: Build the Docker image
-        run: docker build . -t $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        run: docker build . -t $REGISTRY/$REPOSITORY:${{ steps.meta.outputs.tags }}
 
       - name: Publish the Docker image to AWS ECR
-        run: docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        run: docker push $REGISTRY/$REPOSITORY:${{ steps.meta.outputs.tags }}
       
